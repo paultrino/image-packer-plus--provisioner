@@ -22,7 +22,7 @@ ___
 # __English__
 
 ## Background
-This is a tool I developed for universally deploying images and containers that could support geospatial (via GDAL) machine learning (NVIDIA) projects regardless of the required container type (OCI, like docker-ish, or Singularity). Instead of needing to learn another image templating system, I just wanted a simple way to create environments via bash scripts, and deploy to all platforms. 
+This is a "configuration as code" tool I developed for universally deploying images and containers that could support geospatial (via GDAL) machine learning (NVIDIA) projects regardless of the required container type (OCI, like docker-ish, or Singularity). The premade images I was finding on my HPC/Cloud provisioners needed customization, and this provides a simpler way to use bash scripts.
 
 While I originally designed it for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments as well. Hopefully this will be useful for others too. Please reach out if you run into issues. 
 
@@ -32,10 +32,10 @@ This project exists to make it easier to...
 1) create a tailored virtual machine using familiar tools like bash, or docker-compose, and 
 2) provision a cloud instance and deploy the VM to a cloud. The cloud/HPC combo used in this project both needed .SIF containers.
 
-The current example (see the packer folder) creates VMs capable of running NVIDIA drivers (for "virtual" GPU).
+The current example (see the packer folder) creates VMs capable of running NVIDIA drivers.
 
 ## Makefile
-Please note that this project uses a `Makefile`. This is how you will execute all of your commands. You may want to open that file up and see what commands are available.
+Please note that this project uses a `Makefile`. This is how you can execute all of your commands. You may want to open that file up and see what commands are available.
 
 ## Setup
 
