@@ -22,7 +22,7 @@ ___
 # __English__
 
 ## Background
-This is a tool I developed for universally deploying images and containers, regardless of the required container type (OCI, like docker-ish, or Singularity). Instead of needing to learn another image templating system, you can create your environments via bash scripts, and deploy to all platforms. 
+This is a tool I developed for universally deploying images and containers that could support geospatial (via GDAL) machine learning (NVIDIA) projects regardless of the required container type (OCI, like docker-ish, or Singularity). Instead of needing to learn another image templating system, I just wanted a simple way to create environments via bash scripts, and deploy to all platforms. 
 
 While I originally designed it for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments as well. Hopefully this will be useful for others too. Please reach out if you run into issues. 
 
