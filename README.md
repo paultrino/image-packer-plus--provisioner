@@ -28,6 +28,9 @@ Pre-made images from HPC/cloud providers often require customization. This tool 
 
 While initially designed for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments. I hope this proves useful for others! Please feel free to reach out if you encounter any issues.
 
+### Intended Audience
+This is for students who have limited time, know basic bash scripting, and would like to create uniform containers for HPC or Cloud Environments.
+
 ## Tools for creating/deploying to HPC and Cloud Computing Environments !
 
 This project exists to make it easier to...
@@ -42,9 +45,6 @@ Please note that this project uses a `Makefile`. This is how you can execute all
 ## Setup
 
 ### Part One
-
-Please complete the following steps:
-
 If using a university system like the Digital Research Alliance of Canada (DRAC):
 - Contact the DRAC's Cloud Team and ask for a Cloud Environment (a faculty member needs to do this)
 - Contact the Cloud Team and ask for a "GPU Capable" image "flavor"
