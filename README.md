@@ -22,11 +22,15 @@ ___
 # __English__
 
 ## Background
-This is a tool I am using to deploy to multiple environments regardess of what container type was needed. The HPC / Cloud environments (OpenStack) needed .sif images in an easy way with bash scripts. Though I was using the Digital Research Alliance of Canada, this project can be modified for any other environment too.
+This is a tool I developed for universally deploying images and containers, regardless of the required container type (OCI, like docker-ish, or Singularity). Instead of needing to learn another image templating system, you can create your environments via bash scripts, and deploy to all platforms. 
+
+While I originally designed it for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments as well. Hopefully this will be useful for others too. Please reach out if you run into issues. 
 
 ## Tools for creating/deploying to HPC and Cloud Computing Environments !
 
-This project exists to make it easier to 1) create a tailored virtual machine using familiar tools like bash, or docker-compose, and 2) provision a cloud instance and deploy the VM to a cloud. The cloud/HPC combo used in this project both needed .SIF containers.
+This project exists to make it easier to...
+1) create a tailored virtual machine using familiar tools like bash, or docker-compose, and 
+2) provision a cloud instance and deploy the VM to a cloud. The cloud/HPC combo used in this project both needed .SIF containers.
 
 The current example (see the packer folder) creates VMs capable of running NVIDIA drivers (for "virtual" GPU).
 
@@ -73,38 +77,55 @@ Once you've run Packer to create your VM, and then deployed it via Terraform, yo
 ___
 # __Français__
 
-Veuillez noter que ce projet utilise un `Makefile`. C'est ainsi que vous exécuterez toutes vos commandes. Vous voudrez peut-être ouvrir ce fichier et voir quelles commandes sont disponibles.
+## Arrière-plan
+Il s'agit d'un outil que j'ai développé pour déployer universellement des images et des conteneurs, quel que soit le type de conteneur requis (OCI, comme docker-ish ou Singularity). Au lieu d'avoir besoin d'apprendre un autre système de modèles d'images, vous pouvez créer vos environnements via des scripts bash et les déployer sur toutes les plateformes.
+
+Bien que je l'ai conçu à l'origine pour la Digital Research Alliance of Canada (DRAC), ce projet est également facilement adaptable à d'autres environnements. J'espère que cela sera utile à d'autres aussi. Veuillez nous contacter si vous rencontrez des problèmes.
+
+## Outils de création/déploiement sur des environnements HPC et Cloud Computing !
+
+Ce projet existe pour faciliter...
+1) créer une machine virtuelle sur mesure à l'aide d'outils familiers comme bash ou docker-compose, et
+2) provisionnez une instance cloud et déployez la VM sur un cloud. Le combo cloud/HPC utilisé dans ce projet nécessitait tous deux des conteneurs .SIF.
+
+L'exemple actuel (voir le dossier packer) crée des VM capables d'exécuter des pilotes NVIDIA (pour GPU "virtuel").
+
+## Makefile
+Veuillez noter que ce projet utilise un « Makefile ». C'est ainsi que vous exécuterez toutes vos commandes. Vous souhaiterez peut-être ouvrir ce fichier et voir quelles commandes sont disponibles.
 
 ## Installation
 
 ### Partie un
 
-Veuillez suivre les étapes suivantes :
+Veuillez effectuer les étapes suivantes :
 
-- Contactez l'équipe Cloud de la DRAC et demandez un environnement Cloud (un membre du corps professoral doit le faire)
-- Contactez l'équipe Cloud et demandez une "saveur" d'image "GPU Capable"
-- Installez Terraform : `https://www.terraform.io/downloads`
-- Installer Packer : https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
-- Ouvrez la console Web pour l'environnement infonuagique du DRAC (https://arbutus.cloud.computecanada.ca).
+Si vous utilisez un système universitaire comme la Digital Research Alliance of Canada (DRAC) :
+- Contacter l'Equipe Cloud de la DRAC et demander un Environnement Cloud (un membre du corps professoral doit le faire)
+- Contactez l'équipe Cloud et demandez une "saveur" d'image "GPU Capable".
+
+Si vous disposez d'un accès commercial (AWS, Digital Ocean, etc...)
+- Installez Terraform : `https://www.terraform.io/downloads`
+- Installer Packer : https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
+- Ouvrez la console Web de l'environnement cloud de la DRAC (https://arbutus.cloud.computecanada.ca).
 - Téléchargez votre `openrc.sh` depuis la console Web de votre fournisseur OpenStack vers la <i>racine du projet</i>.
-- Installez éventuellement l'interface de ligne de commande OpenStack (CLI) : https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html
+- Installez éventuellement l'interface de ligne de commande (CLI) OpenStack : https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html
 
 ### Deuxième partie (Terraform)
 
-- Regardez le fichier `README.md` situé dans le dossier `terraform` pour voir comment configurer cet aspect.
+Regardez le fichier `README.md` situé dans le dossier `terraform` pour voir comment configurer cet aspect.
 
-### Troisième partie (Packer)
+### Troisième partie (Emballeur)
 
-- Regardez le fichier `README.md` situé dans le dossier `packer` pour voir comment configurer cet aspect.
+Regardez le fichier `README.md` situé dans le dossier `packer` pour voir comment configurer cet aspect.
 
 ### Quatrième partie (SSH)
 
-Une fois que vous avez exécuté Packer pour créer votre machine virtuelle, puis déployé via Terraform, vous pouvez vous y connecter en utilisant `ssh -i ~/.ssh/username@arbutus.computecanada.ca ubuntu@111.12.95.121`
+Une fois que vous avez exécuté Packer pour créer votre VM, puis que vous l'avez déployé via Terraform, vous pouvez vous y connecter en utilisant `ssh -i ~/.ssh/username@arbutus.computecanada.ca ubuntu@111.12.95.121`
 
 - Le `-i` spécifie la clé ssh dans votre dossier `.ssh`
-- le `ubuntu` est un remplaçant pour le nom d'utilisateur ssh de la VM (selon la version du système d'exploitation)
+- `ubuntu` remplace le nom d'utilisateur ssh de la VM (en fonction de la version du système d'exploitation)
 
 ## Annexe:
 
-- Voir le `https://docs.alliancecan.ca/wiki/Cloud` pour plus d'informations sur la façon d'interagir avec ce nuage.
-- Voir le https://texteditor.com/multiline-text-art/ pour les techniques de police ascii sympas
+- Voir le `https://docs.alliancecan.ca/wiki/Cloud` pour plus d'informations sur la façon d'interagir avec ce cloud.
+- Voir https://texteditor.com/multiline-text-art/ pour les techniques de police ascii sympas
