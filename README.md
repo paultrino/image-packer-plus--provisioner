@@ -22,9 +22,11 @@ ___
 # __English__
 
 ## Background
-This is a "configuration as code" tool I developed for universally deploying images and containers that could support geospatial (via GDAL) machine learning (NVIDIA) projects regardless of the required container type (OCI, like docker-ish, or Singularity). The premade images I was finding on my HPC/Cloud provisioners needed customization, and this provides a simpler way to use bash scripts.
+This is a ["infrastructure as code"](https://www.freecodecamp.org/news/infrastructure-as-code-basics/) tool I developed for universal image and container deployment. It supports geospatial (via GDAL) and machine learning (NVIDIA) projects, regardless of the required container type (OCI, like Docker, or Singularity).
 
-While I originally designed it for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments as well. Hopefully this will be useful for others too. Please reach out if you run into issues. 
+Pre-made images from HPC/cloud providers often require customization. This tool offers a simpler approach using bash scripts.
+
+While initially designed for the Digital Research Alliance of Canada (DRAC), this project is easily adaptable to other environments. I hope this proves useful for others! Please feel free to reach out if you encounter any issues.
 
 ## Tools for creating/deploying to HPC and Cloud Computing Environments !
 
